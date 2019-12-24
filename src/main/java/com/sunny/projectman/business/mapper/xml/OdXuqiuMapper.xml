@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunny.projectman.business.mapper.OdXuqiuMapper">
+
+
+    <sql id="result_column">
+            OD_XUQIU.ID as id
+            ,OD_XUQIU.XQBH as xqbh
+            ,OD_XUQIU.BIAOTI as biaoti
+            ,OD_XUQIU.OADJ as oadj
+            ,OD_XUQIU.YWXT as ywxt
+            ,OD_XUQIU.GONGSI as gongsi
+            ,OD_XUQIU.SQR as sqr
+            ,OD_XUQIU.SQRQ as sqrq
+            ,OD_XUQIU.CJRQ as cjrq
+            ,OD_XUQIU.RENWU as renwu
+            ,OD_XUQIU.SFYX as sfyx
+            ,OD_XUQIU.CDESC as cdesc
+            ,OD_XUQIU.SOURCEID as sourceid
+    </sql>
+
+    <sql id="query_sql_n" >
+        select
+        <include refid="result_column"/>
+        from OD_XUQIU
+    </sql>
+    <sql id="query_sql">
+        <include refid="query_sql_n" />
+        ${ew.customSqlSegment}
+    </sql>
+
+    <select id="selectById" resultType="com.sunny.projectman.business.entity.OdXuqiu">
+        <include refid="query_sql_n" />
+        where id=${_parameter}
+    </select>
+
+    <select id="selectPage" resultType="com.sunny.projectman.business.entity.OdXuqiu">
+        <include refid="query_sql"/>
+    </select>
+
+    <select id="selectList" resultType="com.sunny.projectman.business.entity.OdXuqiu">
+        <include refid="query_sql"/>
+    </select>
+</mapper>
