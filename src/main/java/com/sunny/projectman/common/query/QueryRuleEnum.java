@@ -1,8 +1,5 @@
 package com.sunny.projectman.common.query;
 
-
-import com.sunny.pm.common.util.oConvertUtils;
-
 /**
  * Query 规则 常量
  * @Author Scott
@@ -59,7 +56,7 @@ public enum QueryRuleEnum {
 	}
 
 	public static QueryRuleEnum getByValue(String value){
-    	if(oConvertUtils.isEmpty(value)) {
+    	if(isEmpty(value)) {
     		return null;
     	}
         for(QueryRuleEnum val :values()){
@@ -69,4 +66,18 @@ public enum QueryRuleEnum {
         }
         return  null;
     }
+
+    public static boolean isEmpty(Object object) {
+        if (object == null) {
+            return (true);
+        }
+        if ("".equals(object)) {
+            return (true);
+        }
+        if ("null".equals(object)) {
+            return (true);
+        }
+        return (false);
+    }
+
 }

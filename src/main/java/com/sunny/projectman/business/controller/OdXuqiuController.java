@@ -10,9 +10,11 @@ import com.sunny.projectman.common.Result;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -22,7 +24,7 @@ import org.springframework.stereotype.Controller;
  * @author lgwang
  * @since 2019-12-24
  */
-@Controller
+@RestController
 @RequestMapping("/business/odXuqiu")
 public class OdXuqiuController {
 
@@ -36,7 +38,7 @@ public class OdXuqiuController {
      */
     @ApiOperation(value = "需求-分页列表查询", notes = "需求-分页列表查询")
     @PostMapping(value = "/list")
-    public Result<IPage<OdXuqiu>> queryPageList(OdXuqiuDTO odXuqiuDTO) {
+    public Result<IPage<OdXuqiu>> queryPageList(@RequestBody OdXuqiuDTO odXuqiuDTO) {
         Page page = new Page(odXuqiuDTO.getPageNo(), odXuqiuDTO.getPageSize());
         IPage page1 = odXuqiuService.page(page, odXuqiuDTO.getOdXuqiu());
         Result<IPage<OdXuqiu>> result = new Result<IPage<OdXuqiu>>();
