@@ -32,6 +32,18 @@ repositories {
     jcenter()
 }
 
+//打包相关
+jar {
+    manifestContentCharset 'utf-8'
+    metadataCharset 'utf-8'
+    manifest {
+        attributes 'Main-Class': 'com.sunny.projectman.SpringBootProjectManApplication'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     annotationProcessor   'org.projectlombok:lombok:1.18.6'
