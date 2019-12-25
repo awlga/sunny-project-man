@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lgwang
  */
 @SpringBootApplication
-@RestController
 public class SpringBootProjectManApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootProjectManApplication.class, args);
