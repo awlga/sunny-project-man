@@ -29,6 +29,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.alibaba:fastjson:1.2.44'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'io.springfox:springfox-swagger2:2.9.2'
     implementation 'io.springfox:springfox-swagger-ui:2.9.2'
@@ -37,5 +38,6 @@ dependencies {
     implementation 'cn.com.weaver:oalc-webservices:1.0.0'
     implementation 'com.alibaba:druid-spring-boot-starter:1.1.17'
     implementation 'com.sunny.orcl:orcl7:1.0.0'
+    implementation 'commons-beanutils:commons-beanutils:1.9.3'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
