@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+
 /**
  * OdXuqiuController Tester.
  *
@@ -46,10 +48,61 @@ public class OdXuqiuControllerTest {
                 .pageNo(1)
                 .pageSize(2)
                 .build());
+    }
 
-        System.out.println(iPageResult);
+    /**
+     * Method: add(@RequestBody OdXuqiu odXuqiu)
+     */
+    @Test
+    public void testAdd() throws Exception {
 
+        odXuqiuController.add(OdXuqiu.builder()
+                .biaoti("33")
+                .gongsi("1200")
+                .oadj("4444")
+                .build());
+    }
+
+    /**
+     * Method: edit(@RequestBody OdXuqiu odXuqiu)
+     */
+    @Test
+    public void testEdit() throws Exception {
+
+        odXuqiuController.edit(OdXuqiu.builder()
+                .id(new BigDecimal(49))
+                .renwu("2222")
+                .build());
+    }
+
+    /**
+     * Method: delete(@RequestParam(name = "id", required = true) String id)
+     */
+    @Test
+    public void testDelete() throws Exception {
+
+        Result<?> delete = odXuqiuController.delete("46");
+        System.out.println(delete);
+    }
+
+    /**
+     * Method: deleteBatch(@RequestParam(name = "ids", required = true) String ids)
+     */
+    @Test
+    public void testDeleteBatch() throws Exception {
+
+        odXuqiuController.deleteBatch("44,45");
+    }
+
+    /**
+     * Method: queryById(@RequestParam(name = "id", required = true) String id)
+     */
+    @Test
+    public void testQueryById() throws Exception {
+
+        Result<OdXuqiu> result = odXuqiuController.queryById("49");
+        System.out.println(result);
     }
 
 
-} 
+}

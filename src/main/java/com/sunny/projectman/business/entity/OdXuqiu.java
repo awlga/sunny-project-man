@@ -1,6 +1,8 @@
 package com.sunny.projectman.business.entity;
 
 import java.math.BigDecimal;
+
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -28,7 +30,7 @@ public class OdXuqiu extends Model<OdXuqiu> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("ID")
+    @TableId(value = "ID", type = IdType.AUTO)
     private BigDecimal id;
 
     @ApiModelProperty(value = "需求编号")
