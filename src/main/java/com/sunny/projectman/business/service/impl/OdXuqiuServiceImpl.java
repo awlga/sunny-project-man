@@ -1,5 +1,6 @@
 package com.sunny.projectman.business.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -9,6 +10,9 @@ import com.sunny.projectman.business.service.IOdXuqiuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sunny.projectman.common.QueryGenerator;
 import org.springframework.stereotype.Service;
+
+import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * <p>
@@ -26,5 +30,36 @@ public class OdXuqiuServiceImpl extends ServiceImpl<OdXuqiuMapper, OdXuqiu> impl
         QueryWrapper queryWrapper = new QueryWrapper();
         QueryGenerator.installMplus(queryWrapper, odXuqiu, null);
         return baseMapper.selectPage(page, queryWrapper);
+    }
+
+    @Override
+    public boolean save(OdXuqiu entity) {
+        return super.save(entity);
+    }
+
+    @Override
+    public boolean updateById(OdXuqiu entity) {
+        OdXuqiu xuqiu = super.getById(entity.getId());
+        if (xuqiu == null) {
+            throw new RuntimeException("未找到对应实体");
+        }
+        return super.updateById(entity);
+    }
+
+    @Override
+    public boolean removeByIds(String idList) {
+        if (StrUtil.isBlank(idList)) {
+            throw new RuntimeException("参数不识别！");
+        }
+        return super.removeByIds(Arrays.asList(idList.split(",")));
+    }
+
+    @Override
+    public OdXuqiu getById(Serializable id) {
+        OdXuqiu odXuqiu = super.getById(id);
+        if (odXuqiu==null) {
+            throw new RuntimeException("未找到对应实体");
+        }
+        return odXuqiu;
     }
 }
