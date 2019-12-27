@@ -1,0 +1,3 @@
+1>在编写sql的时候在mapper.xml文件中出现黄的背景块,可以在setting中inspect--sql---no date source/sql detail
+2> 在编写insert语句的时候,我们把插入的列显示出来,否则会报红列不匹配;
+3> 客户端访问ssm项目属性找不到;是我们没有使用el表达式取共享的数据

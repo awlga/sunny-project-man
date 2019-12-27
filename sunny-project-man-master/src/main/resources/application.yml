@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.45.92:1521:orcl
+    username: demand
+    password: demand
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#logging:
+#  level:
+#    root: info
+#    mybatis-plus:
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  map-underscore-to-camel-case: true
+  cache-enabled: false
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

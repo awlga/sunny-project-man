@@ -1,0 +1,7 @@
+{
+  "timestamp": "2019-12-26T00:51:59.356+0000",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "No bean specified",
+  "path": "/business/odXuqiu/list"
+}
