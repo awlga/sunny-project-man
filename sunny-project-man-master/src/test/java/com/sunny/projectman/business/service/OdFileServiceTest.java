@@ -5,6 +5,8 @@ import com.sunny.projectman.business.dto.OdFileDTO;
 import com.sunny.projectman.business.entity.OdFile;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,14 +17,18 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class OdFileServiceTest {
+    Logger logger = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private IOdFileService odFileService;
+
 
     /**
      * 分页测试
      */
     @Test
     public void pageList() {
+
         OdFileDTO odFileDTO = new OdFileDTO();
         odFileDTO.setPageNo(1);
         odFileDTO.setPageSize(2);
@@ -30,7 +36,7 @@ public class OdFileServiceTest {
         List<OdFile> records = page.getRecords();
         for (OdFile od :
                 records) {
-            System.out.println("odfile==============>" + od);
+            logger.info("odfile==============>" + od);
         }
     }
 
@@ -45,7 +51,7 @@ public class OdFileServiceTest {
         odfile.setSize("11111");
         odfile.setCreater("Tom");
         int result = odFileService.add(odfile);
-        System.out.println(result);
+        logger.info("添加受影响行数:" + result);
     }
 
     /**
@@ -59,7 +65,7 @@ public class OdFileServiceTest {
         odfile.setSize("20M");
         odfile.setCreater("Lucy");
         int result = odFileService.update(odfile);
-        System.out.println(result);
+        logger.info("更新受影响行数:" + result);
     }
 
     /**
@@ -70,15 +76,15 @@ public class OdFileServiceTest {
         OdFile odfile = new OdFile();
         odfile.setId(new BigDecimal("12"));
         OdFile odFile = odFileService.get(odfile);
-        System.out.println(odFile);
+        logger.info("odfile===>"+ odFile);
     }
 
     @Test
     public void delete() {
         OdFile odfile = new OdFile();
         odfile.setId(new BigDecimal("13"));
-        int delete = odFileService.delete(odfile);
-        System.out.println(delete);
+        int result = odFileService.delete(odfile);
+        logger.info("删除受影响行数:" + result);
     }
 
 }
