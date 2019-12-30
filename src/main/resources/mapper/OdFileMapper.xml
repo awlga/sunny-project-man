@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunny.projectman.business.mapper.OdFileMapper">
+
+<sql id="base_sql">
+    f.ID,
+    f.ODTYPE,
+    f.ODSIZE,
+    f.ODUPDATETIME,
+    f.ODCREATER
+</sql>
+<resultMap id="base_map" type="com.sunny.projectman.business.entity.OdFile">
+    <id column="ID" property="id"></id>
+    <result property="type" column="ODTYPE"></result>
+    <result property="size" column="ODSIZE"></result>
+    <result property="updateTime" column="ODUPDATETIME"></result>
+    <result property="creater" column="ODCREATER"></result>
+</resultMap>
+
+   <!--<select id="findAll" resultType="com.sunny.projectman.business.entity.OdFile">-->
+       <!--select <include refid="base_sql"/> from OD_FILE-->
+   <!--</select>-->
+
+    <!--<select id="get" resultType="com.sunny.projectman.business.entity.OdFile">-->
+        <!--select <include refid="base_sql"/> from OD_FILE-->
+    <!--</select>-->
+    <!--分页sql-->
+    <select id="selectPage" resultMap="base_map">
+        select  <include refid="base_sql"></include> from OD_FILE f
+    </select>
+    <select id="selectById" resultMap="base_map">
+        select  <include refid="base_sql"></include> from OD_FILE f
+        where ID =${_parameter}
+    </select>
+</mapper>
