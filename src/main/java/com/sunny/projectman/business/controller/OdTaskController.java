@@ -7,6 +7,8 @@ import com.sunny.projectman.common.Result;
 import com.sunny.projectman.common.asspect.annotation.AutoLog;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-12-31
  */
 @RestController
+@Slf4j
+@Api(tags = "任务")
 @RequestMapping("/business/odTask")
 public class OdTaskController {
 

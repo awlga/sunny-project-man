@@ -13,6 +13,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import java.io.Serializable;
 import java.util.Arrays;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 任务 服务实现类
@@ -21,6 +22,7 @@ import java.util.Arrays;
  * @since 2019-12-31
  */
 @Service
+@Slf4j
 public class OdTaskServiceImpl extends ServiceImpl<OdTaskMapper, OdTask> implements IOdTaskService {
     @Override
     public IPage<OdTask> page(Page<OdTask> page, OdTask odTask) {

@@ -13,6 +13,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import java.io.Serializable;
 import java.util.Arrays;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 需求 服务实现类
@@ -21,6 +22,7 @@ import java.util.Arrays;
  * @since 2019-12-31
  */
 @Service
+@Slf4j
 public class OdXuqiuServiceImpl extends ServiceImpl<OdXuqiuMapper, OdXuqiu> implements IOdXuqiuService {
     @Override
     public IPage<OdXuqiu> page(Page<OdXuqiu> page, OdXuqiu odXuqiu) {

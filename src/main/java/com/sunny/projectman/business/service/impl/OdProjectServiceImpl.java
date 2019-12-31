@@ -13,6 +13,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import java.io.Serializable;
 import java.util.Arrays;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 项目 服务实现类
@@ -21,6 +22,7 @@ import java.util.Arrays;
  * @since 2019-12-31
  */
 @Service
+@Slf4j
 public class OdProjectServiceImpl extends ServiceImpl<OdProjectMapper, OdProject> implements IOdProjectService {
     @Override
     public IPage<OdProject> page(Page<OdProject> page, OdProject odProject) {
