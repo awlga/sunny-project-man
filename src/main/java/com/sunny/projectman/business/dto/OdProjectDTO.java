@@ -1,6 +1,6 @@
 package com.sunny.projectman.business.dto;
 
-import com.sunny.projectman.business.entity.OdXuqiu;
+import com.sunny.projectman.business.entity.OdProject;
 import lombok.Data;
 import lombok.Builder;
 import lombok.experimental.Accessors;
@@ -16,8 +16,8 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class OdXuqiuDTO {
-    private OdXuqiu odXuqiu;
+public class OdProjectDTO {
+    private OdProject odProject;
     private Integer pageNo;
     private Integer pageSize;
 }

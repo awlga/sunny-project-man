@@ -1,30 +1,30 @@
 package com.sunny.projectman.business.service;
 
-import com.sunny.projectman.business.entity.OdXuqiu;
+import com.sunny.projectman.business.entity.OdProject;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import java.io.Serializable;
 /**
  * <p>
- * 需求 服务类
+ * 项目 服务类
  * </p>
  *
  * @author lgwang
  * @since 2019-12-31
  */
-public interface IOdXuqiuService extends IService<OdXuqiu> {
-    IPage<OdXuqiu> page(Page<OdXuqiu> page, OdXuqiu odXuqiu);
+public interface IOdProjectService extends IService<OdProject> {
+    IPage<OdProject> page(Page<OdProject> page, OdProject odProject);
 
     @Override
-    boolean save(OdXuqiu odXuqiu) ;
+    boolean save(OdProject odProject) ;
 
     @Override
-    boolean updateById(OdXuqiu odXuqiu);
+    boolean updateById(OdProject odProject);
 
     boolean removeByIds(String idList);
 
     @Override
-    OdXuqiu getById(Serializable id);
+    OdProject getById(Serializable id);
 
 }

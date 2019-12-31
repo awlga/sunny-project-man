@@ -1,22 +1,22 @@
 package com.sunny.projectman.business.controller;
-
-
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sunny.projectman.business.dto.OdXuqiuDTO;
 import com.sunny.projectman.business.entity.OdXuqiu;
 import com.sunny.projectman.business.service.IOdXuqiuService;
+
 import com.sunny.projectman.common.Result;
 import com.sunny.projectman.common.asspect.annotation.AutoLog;
+import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 需求 前端控制器
  *
  * @author lgwang
- * @since 2019-12-24
+ * @since 2019-12-31
  */
 @RestController
 @RequestMapping("/business/odXuqiu")
@@ -26,10 +26,10 @@ public class OdXuqiuController {
     private IOdXuqiuService odXuqiuService;
 
     /**
-     * 分页列表查询
-     * @param odXuqiuDTO
-     * @return
-     */
+    * 分页列表查询
+    * @param odXuqiuDTO
+    * @return
+    */
     @ApiOperation(value = "需求-分页列表查询", notes = "需求-分页列表查询")
     @PostMapping(value = "/list")
     public Result<IPage<OdXuqiu>> queryPageList(@RequestBody OdXuqiuDTO odXuqiuDTO) {
@@ -41,13 +41,12 @@ public class OdXuqiuController {
         return result;
     }
 
-
     /**
-     * 添加
-     *
-     * @param odXuqiu
-     * @return
-     */
+    * 添加
+    *
+    * @param odXuqiu
+    * @return
+    */
     @AutoLog(value = "需求-添加")
     @ApiOperation(value = "需求-添加", notes = "需求-添加")
     @PostMapping(value = "/add")
@@ -63,11 +62,11 @@ public class OdXuqiuController {
     }
 
     /**
-     * 编辑
-     *
-     * @param odXuqiu
-     * @return
-     */
+    * 编辑
+    *
+    * @param odXuqiu
+    * @return
+    */
     @AutoLog(value = "需求-编辑")
     @ApiOperation(value = "需求-编辑", notes = "需求-编辑")
     @PutMapping(value = "/edit")
@@ -82,18 +81,17 @@ public class OdXuqiuController {
         return result;
     }
 
-
     /**
-     * 通过id删除
-     *
-     * @param id
-     * @return
-     */
+    * 通过id删除
+    *
+    * @param id
+    * @return
+    */
     @AutoLog(value = "需求-通过id删除")
     @ApiOperation(value = "需求-通过id删除", notes = "需求-通过id删除")
     @DeleteMapping(value = "/delete")
     public Result<?> delete(@RequestParam(name = "id", required = true) String id) {
-        Result<OdXuqiu> result = new Result<OdXuqiu>();
+    Result<OdXuqiu> result = new Result<OdXuqiu>();
         boolean remove = odXuqiuService.removeById(id);
         if (remove) {
             result.success("删除成功！");
@@ -104,11 +102,11 @@ public class OdXuqiuController {
     }
 
     /**
-     * 批量删除
-     *
-     * @param ids
-     * @return
-     */
+    * 批量删除
+    *
+    * @param ids
+    * @return
+    */
     @AutoLog(value = "需求-批量删除")
     @ApiOperation(value = "需求-批量删除", notes = "需求-批量删除")
     @DeleteMapping(value = "/deleteBatch")
@@ -122,13 +120,12 @@ public class OdXuqiuController {
         }
         return result;
     }
-
     /**
-     * 通过id查询
-     *
-     * @param id
-     * @return
-     */
+    * 通过id查询
+    *
+    * @param id
+    * @return
+    */
     @ApiOperation(value = "需求-通过id查询", notes = "需求-通过id查询")
     @GetMapping(value = "/queryById")
     public Result<OdXuqiu> queryById(@RequestParam(name = "id", required = true) String id) {
@@ -138,7 +135,5 @@ public class OdXuqiuController {
         result.setSuccess(true);
         return result;
     }
-
-
 
 }

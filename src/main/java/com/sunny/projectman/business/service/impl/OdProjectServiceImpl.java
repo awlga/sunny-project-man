@@ -1,8 +1,8 @@
 package com.sunny.projectman.business.service.impl;
 
-import com.sunny.projectman.business.entity.OdXuqiu;
-import com.sunny.projectman.business.mapper.OdXuqiuMapper;
-import com.sunny.projectman.business.service.IOdXuqiuService;
+import com.sunny.projectman.business.entity.OdProject;
+import com.sunny.projectman.business.mapper.OdProjectMapper;
+import com.sunny.projectman.business.service.IOdProjectService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sunny.projectman.common.QueryGenerator;
 
@@ -15,29 +15,29 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * 需求 服务实现类
+ * 项目 服务实现类
  *
  * @author lgwang
  * @since 2019-12-31
  */
 @Service
-public class OdXuqiuServiceImpl extends ServiceImpl<OdXuqiuMapper, OdXuqiu> implements IOdXuqiuService {
+public class OdProjectServiceImpl extends ServiceImpl<OdProjectMapper, OdProject> implements IOdProjectService {
     @Override
-    public IPage<OdXuqiu> page(Page<OdXuqiu> page, OdXuqiu odXuqiu) {
+    public IPage<OdProject> page(Page<OdProject> page, OdProject odProject) {
         QueryWrapper queryWrapper = new QueryWrapper();
-        QueryGenerator.installMplus(queryWrapper, odXuqiu, null);
+        QueryGenerator.installMplus(queryWrapper, odProject, null);
         return baseMapper.selectPage(page, queryWrapper);
     }
 
     @Override
-    public boolean save(OdXuqiu entity) {
+    public boolean save(OdProject entity) {
         return super.save(entity);
     }
 
     @Override
-    public boolean updateById(OdXuqiu entity) {
-        OdXuqiu odXuqiu = super.getById(entity.getId());
-        if (odXuqiu == null) {
+    public boolean updateById(OdProject entity) {
+        OdProject odProject = super.getById(entity.getId());
+        if (odProject == null) {
             throw new RuntimeException("未找到对应实体");
         }
         return super.updateById(entity);
@@ -52,12 +52,12 @@ public class OdXuqiuServiceImpl extends ServiceImpl<OdXuqiuMapper, OdXuqiu> impl
     }
 
     @Override
-    public OdXuqiu getById(Serializable id) {
-        OdXuqiu odXuqiu = super.getById(id);
-        if (odXuqiu==null) {
+    public OdProject getById(Serializable id) {
+        OdProject odProject = super.getById(id);
+        if (odProject==null) {
             throw new RuntimeException("未找到对应实体");
         }
-        return odXuqiu;
+        return odProject;
     }
 
 }

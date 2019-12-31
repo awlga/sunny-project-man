@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunny.projectman.business.mapper.OdProjectMapper">
+
+
+    <sql id="result_column">
+            OD_PROJECT.ID as id
+            ,OD_PROJECT.PROJECTNAME as projectname
+            ,OD_PROJECT.HEADER as header
+            ,OD_PROJECT.CONTACTOR as contactor
+            ,OD_PROJECT.PLAN_BEGIN_TIME as planBeginTime
+            ,OD_PROJECT.PLAN_END_TIME as planEndTime
+            ,OD_PROJECT.DESCRIBE as describe
+            ,OD_PROJECT.PLAN_ISSUE_DATE as planIssueDate
+            ,OD_PROJECT.ISSUE_DATE as issueDate
+            ,OD_PROJECT.PAR_PROJECT_ID as parProjectId
+            ,OD_PROJECT.CUSTOMER as customer
+            ,OD_PROJECT.CREATOR as creator
+            ,OD_PROJECT.UPDATER as updater
+            ,OD_PROJECT.CREATE_TIME as createTime
+            ,OD_PROJECT.UPDATE_TIME as updateTime
+            ,OD_PROJECT.PROJECTCODE as projectcode
+            ,OD_PROJECT.STATUS as status
+            ,OD_PROJECT.XUQIU_ID as xuqiuId
+    </sql>
+
+    <sql id="query_sql_n" >
+        select
+        <include refid="result_column"/>
+        from OD_PROJECT
+    </sql>
+    <sql id="query_sql">
+        <include refid="query_sql_n" />
+        ${ew.customSqlSegment}
+    </sql>
+
+    <select id="selectById" resultType="com.sunny.projectman.business.entity.OdProject">
+        <include refid="query_sql_n" />
+        where id=${_parameter}
+    </select>
+
+    <select id="selectPage" resultType="com.sunny.projectman.business.entity.OdProject">
+        <include refid="query_sql"/>
+    </select>
+
+    <select id="selectList" resultType="com.sunny.projectman.business.entity.OdProject">
+        <include refid="query_sql"/>
+    </select>
+</mapper>

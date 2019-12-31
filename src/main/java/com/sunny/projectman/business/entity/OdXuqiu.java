@@ -1,22 +1,25 @@
 package com.sunny.projectman.business.entity;
 
 import java.math.BigDecimal;
-
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import java.util.Date;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
+ * 需求
  * @author lgwang
- * @since 2019-12-24
+ * @since 2019-12-31
  */
 @Builder
 @NoArgsConstructor
@@ -25,7 +28,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("OD_XUQIU")
-@ApiModel(value="OdXuqiu对象", description="")
+@ApiModel(value="OdXuqiu对象", description="需求")
 public class OdXuqiu extends Model<OdXuqiu> {
 
     private static final long serialVersionUID = 1L;
