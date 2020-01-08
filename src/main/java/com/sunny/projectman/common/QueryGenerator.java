@@ -1,6 +1,7 @@
 package com.sunny.projectman.common;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sunny.projectman.common.query.QueryCondition;
 import com.sunny.projectman.common.query.QueryRuleEnum;
@@ -103,12 +104,12 @@ public class QueryGenerator {
                 String endValue = null,beginValue = null;
                 if (parameterMap != null && parameterMap.containsKey(name + BEGIN)) {
                     beginValue = parameterMap.get(name + BEGIN)[0].trim();
-                    addQueryByRule(queryWrapper, name, type, beginValue, QueryRuleEnum.GE);
+                    addQueryByRule(queryWrapper, convernToTableColumn(name,searchObj), type, beginValue, QueryRuleEnum.GE);
 
                 }
                 if (parameterMap != null && parameterMap.containsKey(name + END)) {
                     endValue = parameterMap.get(name + END)[0].trim();
-                    addQueryByRule(queryWrapper, name, type, endValue, QueryRuleEnum.LE);
+                    addQueryByRule(queryWrapper, convernToTableColumn(name,searchObj), type, endValue, QueryRuleEnum.LE);
                 }
 
                 //判断单值  参数带不同标识字符串 走不同的查询
@@ -133,7 +134,7 @@ public class QueryGenerator {
                     //根据参数值带什么关键字符串判断走什么类型的查询
                     QueryRuleEnum rule = convert2Rule(value);
                     value = replaceValue(rule,value);
-                    addEasyQuery(queryWrapper, name, rule, value);
+                    addEasyQuery(queryWrapper, convernToTableColumn(name,searchObj), rule, value);
                 }
 
             } catch (Exception e) {
@@ -146,6 +147,18 @@ public class QueryGenerator {
         //高级查询
         doSuperQuery(queryWrapper, parameterMap);
 
+    }
+
+
+    private static String convernToTableColumn(String colname, Object searchObj) {
+        if (colname == null) {
+            return colname;
+        }
+        try {
+            return searchObj.getClass().getDeclaredField(colname).getAnnotation(TableField.class).value();
+        } catch (Exception e) {
+            return colname;
+        }
     }
 
 

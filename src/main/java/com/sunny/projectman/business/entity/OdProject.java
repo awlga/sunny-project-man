@@ -105,6 +105,10 @@ public class OdProject extends Model<OdProject> {
     @TableField("XUQIU_ID")
     private BigDecimal xuqiuId;
 
+    @ApiModelProperty(value = "资源id")
+    @TableField("SOURCE_ID")
+    private BigDecimal sourceId;
+
 
     @Override
     protected Serializable pkVal() {

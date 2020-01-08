@@ -45,6 +45,22 @@ public class OdFile extends Model<OdXuqiu> {
     @ApiModelProperty("文件创建者")
     private String creater;
 
+    @TableField("XUQIU_ID")
+    @ApiModelProperty("需求id")
+    private BigDecimal xuqiuId;
+
+     @TableField("PROJECT_ID")
+    @ApiModelProperty("项目id")
+    private BigDecimal projectId;
+
+     @TableField("TASK_ID")
+    @ApiModelProperty("任务id")
+    private BigDecimal taskId;
+
+     @TableField("SOURCE_ID")
+    @ApiModelProperty("资源id")
+    private BigDecimal sourceId;
+
     @Override
     protected Serializable pkVal() {
         return this.id;

@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class OdFileDTO {
-    private OdFile odFile;// 文件对象
+    private OdFile odFile = new OdFile();// 文件对象
     private Integer pageNo = 1; // 当前页
     private Integer pageSize = 10;// 显示条数
 }

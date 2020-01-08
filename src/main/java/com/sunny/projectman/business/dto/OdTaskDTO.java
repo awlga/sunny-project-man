@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class OdTaskDTO {
-    private OdTask odTask;
-    private Integer pageNo;
-    private Integer pageSize;
+    private OdTask odTask = new OdTask();
+    private Integer pageNo = 1;
+    private Integer pageSize = 10;
 }

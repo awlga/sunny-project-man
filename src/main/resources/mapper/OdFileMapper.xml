@@ -7,7 +7,11 @@
     f.ODTYPE,
     f.ODSIZE,
     f.ODUPDATETIME,
-    f.ODCREATER
+    f.ODCREATER,
+    f.XUQIU_ID as xuqiuId,
+    f.PROJECT_ID as projectId,
+    f.TASK_ID as taskId,
+    f.SOURCE_ID as sourceId
 </sql>
 <resultMap id="base_map" type="com.sunny.projectman.business.entity.OdFile">
     <id column="ID" property="id"></id>
@@ -26,7 +30,7 @@
     <!--</select>-->
     <!--分页sql-->
     <select id="selectPage" resultMap="base_map">
-        select  <include refid="base_sql"></include> from OD_FILE f
+        select  <include refid="base_sql"></include> from OD_FILE f  ${ew.customSqlSegment}
     </select>
     <select id="selectById" resultMap="base_map">
         select  <include refid="base_sql"></include> from OD_FILE f

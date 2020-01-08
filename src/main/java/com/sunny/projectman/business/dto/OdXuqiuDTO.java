@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class OdXuqiuDTO {
-    private OdXuqiu odXuqiu;
-    private Integer pageNo;
-    private Integer pageSize;
+    private OdXuqiu odXuqiu =new OdXuqiu();
+    private Integer pageNo = 1;
+    private Integer pageSize = 10;
 }

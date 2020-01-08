@@ -23,6 +23,7 @@
             ,OD_TASK.VALID as valid
             ,OD_TASK.CREATOR as creator
             ,OD_TASK.CREATE_TIME as createTime
+            ,OD_TASK.SOURCE_ID as sourceId
     </sql>
 
     <sql id="query_sql_n" >

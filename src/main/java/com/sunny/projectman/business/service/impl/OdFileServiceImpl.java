@@ -8,6 +8,7 @@ import com.sunny.projectman.business.dto.OdFileDTO;
 import com.sunny.projectman.business.entity.OdFile;
 import com.sunny.projectman.business.mapper.OdFileMapper;
 import com.sunny.projectman.business.service.IOdFileService;
+import com.sunny.projectman.common.QueryGenerator;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,7 +33,7 @@ public class OdFileServiceImpl extends ServiceImpl<OdFileMapper,OdFile> implemen
     public IPage<OdFile> pageList(OdFileDTO odFileDTO) {
         // 注册条件构造器
         QueryWrapper queryWrapper = new QueryWrapper();
-        // QueryGenerator.installMplus(queryWrapper, odFileDTO.getOdFile(), null);
+         QueryGenerator.installMplus(queryWrapper, odFileDTO.getOdFile(), null);
         // 设置分页数据
         Page<OdFile> page = new Page<OdFile>(odFileDTO.getPageNo(),odFileDTO.getPageSize());
         return baseMapper.selectPage(page,queryWrapper);

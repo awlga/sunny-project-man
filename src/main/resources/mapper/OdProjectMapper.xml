@@ -22,6 +22,7 @@
             ,OD_PROJECT.PROJECTCODE as projectcode
             ,OD_PROJECT.STATUS as status
             ,OD_PROJECT.XUQIU_ID as xuqiuId
+            ,OD_PROJECT.SOURCE_ID as sourceId
     </sql>
 
     <sql id="query_sql_n" >
