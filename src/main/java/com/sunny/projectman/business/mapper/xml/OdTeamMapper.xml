@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunny.projectman.business.mapper.OdTeamMapper">
+
+
+    <sql id="result_column">
+            OD_TEAM.ID as id
+            ,OD_TEAM.TEAMNAME as teamname
+            ,OD_TEAM.TEAMDESC as teamdesc
+            ,OD_TEAM.LEADER as leader
+            ,OD_TEAM.CREATOR as creator
+            ,OD_TEAM.CREATETIME as createtime
+            ,OD_TEAM.UPDATOR as updator
+            ,OD_TEAM.UPDATETIME as updatetime
+            ,OD_TEAM.PARENTTEAM as parentteam
+    </sql>
+
+    <sql id="query_sql_n" >
+        select
+        <include refid="result_column"/>
+        from OD_TEAM
+    </sql>
+    <sql id="query_sql">
+        <include refid="query_sql_n" />
+        ${ew.customSqlSegment}
+    </sql>
+
+    <select id="selectById" resultType="com.sunny.projectman.business.entity.OdTeam">
+        <include refid="query_sql_n" />
+        where id=${_parameter}
+    </select>
+
+    <select id="selectPage" resultType="com.sunny.projectman.business.entity.OdTeam">
+        <include refid="query_sql"/>
+    </select>
+
+    <select id="selectList" resultType="com.sunny.projectman.business.entity.OdTeam">
+        <include refid="query_sql"/>
+    </select>
+</mapper>
